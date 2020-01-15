@@ -1,0 +1,8 @@
+# Packages
+node_modules
+
+# Generated Code
+src/codegen
+
+# Configuration
+.env
