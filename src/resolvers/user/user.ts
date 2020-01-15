@@ -2,6 +2,7 @@ import { hash, compare } from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
 import { getUser } from '../../utils/auth';
 import { User } from '../../codegen';
+import { UserInputError } from 'apollo-server';
 
 export default {
     Query: {
@@ -31,13 +32,13 @@ export default {
             });
 
             if (!user) {
-                throw new Error('User not found.');
+                throw new UserInputError('Invalid username.');
             }
 
             const isValid: boolean = await compare(password, user.password);
 
             if (!isValid) {
-                throw new Error('Invalid password.');
+                throw new UserInputError('Invalid password.');
             }
 
             return {

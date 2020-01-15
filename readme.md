@@ -18,5 +18,4 @@ Start Server
 ## TODO
 - ENV File
 - Add Instructions how to generate additional TS types for the client
-- Better Error responses?
 - Request Data Validation (maximum length for the name etc...)
